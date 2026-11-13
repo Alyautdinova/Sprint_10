@@ -3,7 +3,7 @@ import allure
 from pages.maps_page import MapsPage
 from pages.block_page import BlockPage
 from data.urls import Urls
-from data.data_test import FROM_ADDRESS, TO_ADDRESS
+from data.data_test import FROM_ADDRESS, TO_ADDRESS, OPTIMAL_TYPE, FAST_TYPE, SELF_TYPE
 
 class TestRoute:
 
@@ -24,9 +24,9 @@ class TestRoute:
     def test_route_block_appears_different_addresses(self, create_default_route, driver):
         with allure.step('Проверка отображения блока с выбором маршрута'):
             blockPage = BlockPage(driver)
-            assert "Оптимальный" in blockPage.get_text_type_mode_block()
-            assert "Быстрый" in blockPage.get_text_type_mode_block()
-            assert "Свой" in blockPage.get_text_type_mode_block()
+            assert OPTIMAL_TYPE in blockPage.get_text_type_mode_block()
+            assert FAST_TYPE in blockPage.get_text_type_mode_block()
+            assert SELF_TYPE in blockPage.get_text_type_mode_block()
 
     @allure.title('Отрисовка блока с выбором маршрута с одинаковыми адресами')
     @allure.description('При вводе одинакового адреса в поля "Откуда" и "Куда" под выбором адресов отображается блок с выбором маршрута с текстом "Авто Бесплатно В пути 0 мин."')
@@ -37,5 +37,5 @@ class TestRoute:
         with allure.step('Ввод одинакового адреса в откуда и куда'):
             blockPage.set_address(FROM_ADDRESS, FROM_ADDRESS)
         with allure.step('Проверка отображения текста "Авто Бесплатно В пути 0 мин."'):
-         assert "Авто Бесплатно В пути 0 мин." in blockPage.get_text_how_much_minute().replace("\n", " ")
+         assert blockPage.get_text_how_much_minute() == "Авто Бесплатно В пути 0 мин."
     
