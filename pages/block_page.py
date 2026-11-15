@@ -1,3 +1,5 @@
+import re
+
 from pages.base_page import BasePage
 from locators.block_locators import BlockLocators
 
@@ -22,7 +24,7 @@ class BlockPage(BasePage):
 
     # метод отображения текста сколько минут в пути
     def get_text_how_much_minute(self):
-        return self.get_text(BlockLocators.how_much_minute_text).replace("\n", " ")
+        return re.sub(r'\d+', 'X', self.get_text(BlockLocators.how_much_minute_text).replace("\n", " "))
 
     # метод отображения текста для активного блока с выбором маршрута
     def get_text_active_type_mode_block(self):
@@ -41,8 +43,8 @@ class BlockPage(BasePage):
         return self.find_all(BlockLocators.active_type_transport)
 
     # метод выбора средства передвижения
-    def click_active_type_transport(self, type_transport):
-        self.click(BlockLocators.type_transport_options_active(type_transport))
+    def click_active_type_transport(self):
+        self.move_to_element(BlockLocators.drive_type)
     
     # метод отображения кнопки "Вызвать такси"
     def is_visible_order_taxi_button(self):

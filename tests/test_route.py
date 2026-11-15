@@ -37,5 +37,5 @@ class TestRoute:
         with allure.step('Ввод одинакового адреса в откуда и куда'):
             blockPage.set_address(FROM_ADDRESS, FROM_ADDRESS)
         with allure.step('Проверка отображения текста "Авто Бесплатно В пути 0 мин."'):
-         assert blockPage.get_text_how_much_minute() == "Авто Бесплатно В пути 0 мин."
+            assert blockPage.get_text_how_much_minute() == "Авто Бесплатно В пути 0 мин."
     

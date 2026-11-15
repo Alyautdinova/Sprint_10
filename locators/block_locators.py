@@ -7,6 +7,7 @@ class BlockLocators:
     how_much_minute_text = [By.XPATH, "//div[@class='results-text']"]
     active_type_mode_block = [By.XPATH, "//div[@class='type-picker shown']//div[contains(@class,'mode active')]"]
     active_type_transport = [By.XPATH, "//div[@class='types-container']/div[not(contains(@class, 'disabled'))]/img"]
+    drive_type = [By.XPATH, "//div[@class='types-container']/div[contains(@class, 'type drive')]"]
     order_taxi_button = [By.XPATH, "//button[text()='Вызвать такси']"]
     order_drive_button = [By.XPATH, "//button[text()='Забронировать']"]
 
@@ -21,5 +22,5 @@ class BlockLocators:
 
     @staticmethod
     def type_transport_options_active(type_transport):
-        return(By.XPATH, f"//img[contains(@src,'{type_transport}')]/parent::div[not(contains(@class, 'disabled'))]")
+        return(By.XPATH, f"//div[@class='types-container']/div[not(contains(@class, 'disabled'))]/img[contains(@src,'{type_transport}')]")
     
