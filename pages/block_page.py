@@ -23,8 +23,12 @@ class BlockPage(BasePage):
         return self.get_text(BlockLocators.type_mode_block)
 
     # метод отображения текста сколько минут в пути
-    def get_text_how_much_minute(self):
+    def get_text_how_much_minute_with_regex(self):
         return re.sub(r'\d+', 'X', self.get_text(BlockLocators.how_much_minute_text).replace("\n", " "))
+
+    # метод отображения текста сколько минут в пути
+    def get_text_how_much_minute(self):
+        return self.get_text(BlockLocators.how_much_minute_text).replace("\n", " ")
 
     # метод отображения текста для активного блока с выбором маршрута
     def get_text_active_type_mode_block(self):

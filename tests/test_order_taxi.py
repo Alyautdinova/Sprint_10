@@ -15,7 +15,7 @@ class TestOrderTaxi:
             assert blockPage.get_text_active_type_mode_block() == FAST_TYPE
 
         with allure.step('Проверка стоимости маршрута и времени для опции "Быстрый/Такси"'):
-            assert "Такси ~ X руб. В пути X мин." in blockPage.get_text_how_much_minute()
+            assert "Такси ~ X руб. В пути X мин." in blockPage.get_text_how_much_minute_with_regex()
             assert blockPage.is_visible_type_transport_options_active_disabled(TAXI_TRANSPORT)
 
         with allure.step('Нажатие на опцию "Оптимальный"'):
@@ -25,7 +25,7 @@ class TestOrderTaxi:
             assert blockPage.get_text_active_type_mode_block() == OPTIMAL_TYPE
 
         with allure.step('Проверка стоимости маршрута и времени для опции "Оптимальный/Авто"'):
-            assert "Авто ~ X руб. В пути X мин." in blockPage.get_text_how_much_minute()
+            assert "Авто ~ X руб. В пути X мин." in blockPage.get_text_how_much_minute_with_regex()
             assert blockPage.is_visible_type_transport_options_active_disabled(CAR_TRANSPORT)
 
     @allure.title('Подготовка к заказу такси')
