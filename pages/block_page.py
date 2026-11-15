@@ -44,7 +44,7 @@ class BlockPage(BasePage):
 
     # метод выбора средства передвижения
     def click_active_type_transport(self):
-        self.move_to_element(BlockLocators.drive_type)
+        self.click(BlockLocators.drive_type)
     
     # метод отображения кнопки "Вызвать такси"
     def is_visible_order_taxi_button(self):

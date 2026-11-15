@@ -3,6 +3,7 @@ import pytest
 
 from pages.block_page import BlockPage
 from pages.tariff_page import TariffPage
+from pages.taxi_orders_page import TaxiOrdersPage
 from data.data_test import OPTIMAL_TYPE, FAST_TYPE, SELF_TYPE, CAR_TRANSPORT, TAXI_TRANSPORT, DRIVE_TRANSPORT, WORK_TARIFF, SLEEP_TARIFF, VACATION_TARIFF, TALK_TARIFF, COMFORTING_TARIFF, GLAMUR_TARIFF
 
 class TestOrderTaxi:
@@ -105,4 +106,18 @@ class TestOrderTaxi:
             
         with allure.step('Проверка текста описания'):
             assert expected_description in tariffPage.get_describe_tariff(tariff_name)
+
+    @allure.title('Заказ тарифа Такси')
+    @allure.description('Под тарифами отображается блок с полями Телефон, Способ оплаты, Комментарий водителю, Требования к заказу')
+    def test_display_inputs(self, create_default_route, driver):
+        with allure.step('Нажатие на кнопку "Вызвать такси"'):
+            blockPage = BlockPage (driver)
+            blockPage.click_order_taxi_button()
+
+        with allure.step('Проверка, что отображается блок с полями Телефон, Способ оплаты, Комментарий водителю, Требования к заказу'):
+            taxiOrdersPage = TaxiOrdersPage(driver)
+            assert taxiOrdersPage.is_visible_phone_input()
+            assert taxiOrdersPage.is_visible_payment_input()
+            assert taxiOrdersPage.is_visible_comment_input()
+            assert taxiOrdersPage.is_visible_request_dropdown()
     
