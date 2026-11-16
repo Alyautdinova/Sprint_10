@@ -6,11 +6,11 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 20)
+        self.wait = WebDriverWait(driver, 40)
 
     # метод поиска всех элементов с ожиданием
     def find(self, locator):
-        return self.wait.until(expected_conditions.presence_of_element_located(locator))
+        return self.wait.until(expected_conditions.visibility_of_element_located(locator))
 
     # метод поиска всех элементов с ожиданием
     def find_all(self, locator):
@@ -54,9 +54,13 @@ class BasePage:
     def get_current_url(self):
         return self.driver.current_url
 
+    # метод наведения на элемент
     def hover(self, locator):
         element = self.wait.until(expected_conditions.presence_of_element_located(locator))
         #self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
         actions = ActionChains(self.driver)
         actions.move_to_element(element).perform()
-    
+
+    # метод проверки исчезновения элемента
+    def wait_element_disappear(self, locator):
+        return self.wait.until(expected_conditions.invisibility_of_element_located(locator))

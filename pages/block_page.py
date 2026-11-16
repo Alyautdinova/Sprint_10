@@ -46,7 +46,7 @@ class BlockPage(BasePage):
     def is_visible_active_type_transport(self):
         return self.find_all(BlockLocators.active_type_transport)
 
-    # метод выбора средства передвижения
+    # метод нажатия на кнопку Drive
     def click_active_type_transport(self):
         self.click(BlockLocators.drive_type)
     
