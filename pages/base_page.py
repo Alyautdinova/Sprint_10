@@ -57,7 +57,6 @@ class BasePage:
     # метод наведения на элемент
     def hover(self, locator):
         element = self.wait.until(expected_conditions.presence_of_element_located(locator))
-        #self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
         actions = ActionChains(self.driver)
         actions.move_to_element(element).perform()
 

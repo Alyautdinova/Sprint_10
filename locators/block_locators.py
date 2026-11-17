@@ -19,8 +19,4 @@ class BlockLocators:
     @staticmethod
     def type_transport_options_active_disabled(type_transport):
         return(By.XPATH, f"//div[@class='types-container']/div[contains(@class, 'active disabled')]/img[contains(@src,'{type_transport}')]")
-
-    @staticmethod
-    def type_transport_options_active(type_transport):
-        return(By.XPATH, f"//div[@class='types-container']/div[not(contains(@class, 'disabled'))]/img[contains(@src,'{type_transport}')]")
     
