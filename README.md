@@ -32,9 +32,12 @@
 Для просмотра подробного отчета с шагами и результатами выполните:
 
 ```bash
-# Запуск тестов с сохранением результатов
-python -m pytest tests/ --alluredir=allure-results
+# 1. Запустить тесты с сохранением результатов
+pytest --alluredir=target/allure-results --clean-alluredir
 
-# Генерация и открытие HTML-отчета
-allure serve allure-results
+# 2. Сгенерировать HTML-отчёт
+allure generate target/allure-results -o target/allure-report --clean
+
+# 3. Открыть отчёт локально
+allure open target/allure-report
 ```
