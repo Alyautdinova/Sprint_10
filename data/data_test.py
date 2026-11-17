@@ -1,0 +1,20 @@
+FROM_ADDRESS = "Хамовнический Вал, 34"
+TO_ADDRESS = "Зубовский бульвар, 37"
+
+OPTIMAL_TYPE = "Оптимальный"
+FAST_TYPE = "Быстрый"
+SELF_TYPE = "Свой"
+
+CAR_TRANSPORT = "car"
+WALK_TRANSPORT = "walk"
+TAXI_TRANSPORT = "taxi"
+BIKEK_TRANSPORT = "bike"
+SCOOTER_TRANSPORT = "scooter"
+DRIVE_TRANSPORT = "drive"
+
+WORK_TARIFF = "Рабочий"
+SLEEP_TARIFF = "Сонный"
+VACATION_TARIFF = "Отпускной"
+TALK_TARIFF = "Разговорчивый"
+COMFORTING_TARIFF = "Утешительный"
+GLAMUR_TARIFF = "Глянцевый"
